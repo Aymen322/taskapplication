@@ -1,9 +1,10 @@
 package com.example.task.demo;
 
-
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
+
 import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -27,5 +28,16 @@ class TaskServiceTest {
         assertNotNull(savedTask.getId());
         assertEquals("Test Task", savedTask.getTitle());
     }
-}
 
+    @Test
+    void thisTestShouldFail() {
+        // This assertion will fail because 2 is not equal to 3
+        assertEquals(2, 3, "This test is designed to fail.");
+    }
+
+    @Disabled("This test is disabled for demonstration purposes")
+    @Test
+    void skippedTest() {
+        fail("This test should be skipped and not executed.");
+    }
+}
